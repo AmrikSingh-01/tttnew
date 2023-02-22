@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="icon" href="img/fav.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div id="preloader">
+        <div id="loadercontainer">
+            <div class="loadercells" id="lc1"><div class="loadercellcover">O</div></div>
+            <div class="loadercells" id="lc2"><div class="loadercellcover">O</div></div>
+            <div class="loadercells" id="lc3"><div class="loadercellcover">X</div></div>
+            <div class="loadercells" id="lc4"><div class="loadercellcover">X</div></div>
+            <div class="loadercells" id="lc5"><div class="loadercellcover">X</div></div>
+            <div class="loadercells" id="lc6"><div class="loadercellcover">O</div></div>
+            <div class="loadercells" id="lc7"><div class="loadercellcover">O</div></div>
+            <div class="loadercells" id="lc8"><div class="loadercellcover">X</div></div>
+            <div class="loadercells" id="lc9"><div class="loadercellcover">O</div></div>
+        </div>
+    </div>
+
+   <div class="container-fluid h-100 withwhom" id="withwhom">
+    <div class="row justify-content-evenly align-items-center flex-md-row flex-column h-100">
+        
+        <div class="col-md-2 col-8 comp p-0 whichbox" onclick="showcf()">
+            <div class="innerwhom row m-0 justify-content-md-center justify-content-between align-items-center">
+                <div class="col-md-10 col-2 comp"></div>
+                <p class="col-md-10 col-9 p-0 m-2 text-center">Vs<br class="d-none d-md-block"><span class="ms-2 m-md-0 p-0">COMPUTER</span></p>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-8 hum p-0 whichbox" onclick="showhf()">
+            <div class="innerwhom row m-0 justify-content-md-center justify-content-between align-items-center">
+                <div class="col-md-10 col-2 hum"></div>
+                <p class="col-md-10 col-9 p-0 m-2 text-center">TWO<br class="d-none d-md-block"><span class="ms-2 m-md-0 p-0">PLAYERS</span> </p>
+            </div>
+        </div>
+
+    </div>
+   </div>
+
+
+   <!-- comp form -->
+   <div class="compform">
+    <div class="innercompform" id="m11">
+        <p id="m12">Your Name</p>
+        <form id="m15" action="javascript:void(0);" >
+        <input type="text" class="d-block" id="m13" autocomplete="off" maxlength="15" onkeyup="enablebutcom()">
+        <button class="compbut" id="m14" onclick="compconsole(1)">PLAY</button>
+        </form>
+    </div>
+   </div>
+
+   <!-- hum form -->
+   <div class="humform">
+    <div class="innerhumform" id="m21">
+        <div id="m22">
+        <p id="m23">Player 1</p>
+        <input type="text" class="d-block" id="m24" autocomplete="off" maxlength="15" onkeyup="enablebuthum()">
+    </div>
+    <div id="m25">
+        <p id="m26">Player 2</p>
+        <input type="text" class="d-block" id="m27" autocomplete="off" maxlength="15" onkeyup="enablebuthum()">
+    </div>
+        <button class="humbut" id="m28" onclick="humconsole(1)">PLAY</button>
+    
+    </div>
+   </div>
+
+
+
+<!-- human screen -->
+<div id="humcon">
+    
+    <div id="humgridcon">
+        <div id="humwinner"></div>
+        <div id="outhumgrid">
+        <div id="humgrid">
+            <div class="hc" id="hc00" onclick="hplayerchance([0,0])"></div>
+            <div class="hc" id="hc01" onclick="hplayerchance([0,1])"></div>
+            <div class="hc" id="hc02" onclick="hplayerchance([0,2])"></div>
+            <div class="hc" id="hc10" onclick="hplayerchance([1,0])"></div>
+            <div class="hc" id="hc11" onclick="hplayerchance([1,1])"></div>
+            <div class="hc" id="hc12" onclick="hplayerchance([1,2])"></div>
+            <div class="hc" id="hc20" onclick="hplayerchance([2,0])"></div>
+            <div class="hc" id="hc21" onclick="hplayerchance([2,1])"></div>
+            <div class="hc" id="hc22" onclick="hplayerchance([2,2])"></div>
+
+            <div class="hl" id="hl1" >
+                <div class="hlg"></div>
+            </div>
+            <div class="hl" id="hl2" >
+                <div class="hlg"></div>
+            </div>
+            <div class="hl" id="hl3" >
+                <div class="hlg"></div>
+            </div>
+            <div class="hl" id="hl4" >
+                <div class="hlg"></div>
+            </div>
+            <div class="hl" id="hl5" >
+                <div class="hlg"></div>
+            </div>
+            <div class="hl" id="hl6" >
+                <div class="hlg"></div>
+            </div>
+            <div class="hl" id="hl7" >
+                <div class="hlg"></div>
+            </div>
+            <div class="hl" id="hl8" >
+                <div class="hlg"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div id="compplayer">
+        <div id="hpcon">
+            <div class="hp" id="hp1"><span id="hpc1" class="hpc"></span><p id="hpp1" class="hpp"></p><span class="hps" id="hps1">0</span></div>
+            <div class="hp" id="hp2"><span id="hpc1" class="hpc"></span><p id="hpp2" class="hpp"></p><span class="hps" id="hps2">0</span></div>
+        </div>
+        <div id="hreplay" onclick="hreplay()">RESTART</div>
+        <div id="humhome" onclick="comback()"></div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- computer screen -->
+   <div id="compcon">
+    
+        <div id="compgridcon">
+            <div id="compwinner"></div>
+            <div id="outcompgrid">
+            <div id="compgrid">
+                <div class="cc" id="cc00" onclick="cplayerchance([0,0])"></div>
+                <div class="cc" id="cc01" onclick="cplayerchance([0,1])"></div>
+                <div class="cc" id="cc02" onclick="cplayerchance([0,2])"></div>
+                <div class="cc" id="cc10" onclick="cplayerchance([1,0])"></div>
+                <div class="cc" id="cc11" onclick="cplayerchance([1,1])"></div>
+                <div class="cc" id="cc12" onclick="cplayerchance([1,2])"></div>
+                <div class="cc" id="cc20" onclick="cplayerchance([2,0])"></div>
+                <div class="cc" id="cc21" onclick="cplayerchance([2,1])"></div>
+                <div class="cc" id="cc22" onclick="cplayerchance([2,2])"></div>
+
+                <div class="cl" id="cl1" >
+                    <div class="clg"></div>
+                </div>
+                <div class="cl" id="cl2" >
+                    <div class="clg"></div>
+                </div>
+                <div class="cl" id="cl3" >
+                    <div class="clg"></div>
+                </div>
+                <div class="cl" id="cl4" >
+                    <div class="clg"></div>
+                </div>
+                <div class="cl" id="cl5" >
+                    <div class="clg"></div>
+                </div>
+                <div class="cl" id="cl6" >
+                    <div class="clg"></div>
+                </div>
+                <div class="cl" id="cl7" >
+                    <div class="clg"></div>
+                </div>
+                <div class="cl" id="cl8" >
+                    <div class="clg"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div id="compplayer">
+            <div id="cpcon">
+                <div class="cp" id="cp1"><span id="cpc1" class="cpc"></span><p id="cpp1" class="cpp"></p><span class="cps" id="cps1">0</span></div>
+                <div class="cp" id="cp2"><span id="cpc1" class="cpc"></span><p id="cpp2" class="cpp"></p><span class="cps" id="cps2">0</span></div>
+            </div>
+            <div id="creplay" onclick="creplay()">RESTART</div>
+            <div id="comphome" onclick="comback()"></div>
+        </div>
+
+   </div>
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/js.js"></script>
+</body>
+</html>

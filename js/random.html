@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="el" style="height:20px; background: #cf7777;"></div>
+    <script>
+        // let x= Math.trunc(Math.random()*2) + 1;
+        // document.getElementById("el").textContent=x;
+        let x=[[0,0,0],[0,0,0],[0,0,0]];
+        x[2][1]=9;
+        document.getElementById("el").innerHTML=`${x[0][0]} ${x[0][1]} ${x[0][2]}`+"<br>"+`${x[1][0]} ${x[1][1]} ${x[1][2]}`+"<br>"+`${x[2][0]} ${x[2][1]} ${x[2][2]}`;
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="myBtn">My Button</button>
+
+<p>Click the button below to disable the button above.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  document.getElementById("myBtn").disabled = true;
+}
+</script>
+
+</body>
+</html>
